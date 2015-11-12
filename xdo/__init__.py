@@ -732,16 +732,7 @@ class Xdo(object):
             self._xdo, window, name, ctypes.byref(value), ctypes.byref(nitems),
             ctypes.byref(type_), ctypes.byref(size))
 
-        # todo: we need to convert atoms into their actual type..
-        values = []
-        for i in xrange(nitems):
-            i_val = value[i]
-            # i_type = type_[i]
-            values.append(i_val)
-            # todo: perform type conversion for "Atom"s of this type?
-            # todo: how does the "Atom" thing work?
-
-        return values
+        return value.value
 
     def get_input_state(self):
         """
